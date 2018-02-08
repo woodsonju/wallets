@@ -1,0 +1,91 @@
+<p>
+  template works! Template display the model:
+  {{data}}
+</p>
+
+ <p [style.color]=" favoriteColor ">
+  Concatenate strings = {{data + '> MORE TEXT'}}
+</p>
+
+<p [textContent]="data">
+  More directly :
+</p>
+<p>
+  {{data}}
+</p>
+
+
+=================Make Some Cool Loops
+<div>
+  <ul>
+    <!-- Loop in pseudo HTML -->
+    <li *ngFor = "let coin of coins">
+      {{coin.symbol}} => {{coin.price}}
+    </li>
+  </ul>
+</div>
+
+==================Make table great again :
+<div>
+  <!-- name, symbol  -->
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Symbol</th>
+      <th>Price</th>
+    </tr>
+
+    <tr>
+      <td>Bitcoin</td>
+      <td>BTC</td>
+      <td>10300</td>
+    </tr>
+
+    <tr>
+      <td>Ethereum</td>
+      <td>ETH</td>
+      <td>1100</td>
+    </tr>
+
+    <tr>
+      <td>Ripple</td>
+      <td>XRP</td>
+      <td>1.13</td>
+    </tr>
+
+    <tr>
+      <td>Bitcoin Cash</td>
+      <td>ETH</td>
+      <td>1500</td>
+    </tr>
+
+    <tr>
+      <td>Cardano</td>
+      <td>ADA</td>
+      <td>0.5</td>
+    </tr>
+
+    <tr>
+      <td>Stellar</td>
+      <td>XLM</td>
+      <td>0.522</td>
+    </tr>
+
+    <tr>
+      <td>Néo</td>
+      <td>NEO</td>
+      <td>143.03</td>
+    </tr>
+
+    <tr>
+      <td>Litecoin</td>
+      <td>LTC</td>
+      <td>163.44</td>
+    </tr>
+
+
+
+
+  </table>
+
+</div>

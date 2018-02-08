@@ -1,0 +1,29 @@
+<p>
+  forms works!
+</p>
+<form>
+  wallet name : <input placeholder = "yolo or not"
+                       name = "name" [(ngModel)] = "formModel.name">
+<br/> <br/>
+  limit : <input placeholder = "Enter limit" type = "number"
+                 name = "limit" [(ngModel)] = "formModel.limit">
+
+
+  <br/> <br/>
+
+  Enter your level :
+  <select [(ngModel)] = "formModel.level" name = "level">
+    <option *ngFor = "let l of levels">
+      {{l}}
+    </option>
+  </select>
+
+
+  <button (click)="createNewWallet()" [disabled] = "isDisabled()">
+    Create new Wallet
+  </button>
+
+</form>
+
+<br/>
+you have chosen: <strong>{{formModel.level}}</strong>
