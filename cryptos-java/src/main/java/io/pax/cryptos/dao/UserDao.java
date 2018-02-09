@@ -1,7 +1,6 @@
 package io.pax.cryptos.dao;
 
-import io.pax.cryptos.domain.SimpleUser;
-import io.pax.cryptos.domain.User;
+import io.pax.cryptos.domain.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,6 +13,7 @@ public class UserDao
 {
 
     JdbcConnector connector = new JdbcConnector();
+
 
     public List<User> listUsers() throws SQLException {
         List<User> users = new ArrayList<>();
@@ -106,6 +106,41 @@ public class UserDao
 
     }
 
+    public User findUserWithWallets(int userId) throws SQLException {
+        Connection connection = connector.getConnection();
+        String query = "SELECT * FROM wallet w JOIN user u ON w.user_id = u.id WHERE u.id = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, userId);
+
+        ResultSet set = statement.executeQuery();
+
+        User user = null;
+        //pro tip: always init lists
+        List<Wallet> wallets = new ArrayList<>();
+
+        while(set.next()){
+            String userName = set.getString("u.name");
+            System.out.println("userName :" + userName);
+            user = new FullUser(userId, userName, wallets);
+
+            int walletId = set.getInt("w.id");
+            String walletName = set.getString("w.name");
+
+            if(walletId > 0){
+                Wallet wallet = new SimpleWallet(walletId, walletName);
+                wallets.add(wallet);
+            }
+
+        }
+        set.close();
+        statement.close();
+        connection.close();
+
+        return user;
+    }
+
+
+
     /*public void deleteByName(String exactName) throws SQLException {
         String query = "DELETE FROM user WHERE name = ?";
 
@@ -158,12 +193,14 @@ public class UserDao
        UserDao dao = new UserDao();
        // System.out.println(dao.listUsers());
         //dao.createUser("christian");
-          dao.deleteUser(2);
+        //  dao.deleteUser(2);
         //int id = dao.createWallet(2, "Bidon");
         // dao.deleteWallet(id);
         //dao.deleteAll(6);
        // System.out.println(dao.findByName("W"));
        // dao.updateUser(3, "Woodson");
+
+        System.out.println(dao.findUserWithWallets(1));
     }
 
 }
