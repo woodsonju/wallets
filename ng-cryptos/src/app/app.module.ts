@@ -13,6 +13,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {PricingService} from "./pricing.service";
 import { FormsComponent } from './demos/forms/forms.component';
 import {FormsModule} from "@angular/forms";
+import { UserListViewComponent } from './user-list-view/user-list-view.component';
+import {DataService} from "./data-service.service";
 
 
 @NgModule({
@@ -24,9 +26,11 @@ import {FormsModule} from "@angular/forms";
     AttributesComponent,
     WalletViewComponent,
     TemplateComponent,
-    FormsComponent
+    FormsComponent,
+    UserListViewComponent
   ],
   providers: [
+    DataService,
     PricingService,
     BurgerService, SteackService, BunService],
   bootstrap: [AppComponent]
