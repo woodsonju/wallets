@@ -12,14 +12,44 @@
   </ul>
 </div>
 
+<div>
+  <h3>Create new User</h3>
+  <form>
+    <input type="text" name="userName"
+           [(ngModel)]="createdUser.name" (click)="createdUser.name='' ">
+    <button (click)="createUser()" [disabled]="createdUser.name?.length<2">Create new User</button>
+  </form>
+</div>
+
+
 <div *ngIf = "selectedUser">
   <h2>User details: {{selectedUser.name}}</h2>
   <ul>
     <li *ngFor="let wallet of selectedUser.wallets" >
+      <input type = "checkbox" (click) = "DeleteWallet.name" >
       {{wallet.name}}
     </li>
 
   </ul>
+
+  <h3>Create new Wallet</h3>
+  <form>
+    <input type = "text" name = "walletName"
+           [(ngModel)] = "createdWallet.name" (click) = "createdWallet.name = '' ">
+    <button (click)="createWallet()" [disabled] = "createdWallet.name.length < 2">
+      Create new Wallet
+    </button>
+    <button (click)="deleteWallet()">
+      Delete Wallet
+    </button>
+
+  </form>
+
+
+
+
+
 </div>
+
 
 

@@ -1,12 +1,15 @@
 
 import {PricingService} from "../pricing.service";
+import {User} from "./user";
 export class Line{
     constructor(public symbol: string, public quantity: number){
     }
 }
 
 export class Wallet{
+   user:User;
    lines : Line[] = [];
+   name:String;
    pricingService: PricingService;
 
    deposit(dollars: number){
