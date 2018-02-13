@@ -1,7 +1,7 @@
 package io.pax.cryptos.ws;
 
 import io.pax.cryptos.dao.UserDao;
-import io.pax.cryptos.domain.FullUser;
+import io.pax.cryptos.domain.jdbc.FullUser;
 import io.pax.cryptos.domain.User;
 import io.pax.cryptos.domain.Wallet;
 
