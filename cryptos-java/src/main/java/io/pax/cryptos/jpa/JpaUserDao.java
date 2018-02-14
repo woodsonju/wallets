@@ -15,7 +15,7 @@ public class JpaUserDao
 {
     JpaConnector connector = new JpaConnector();
 
-   public User createUser(String name)
+   public JpaUser createUser(String name)
    {
        JpaUser user = new JpaUser();
        user.setName(name);

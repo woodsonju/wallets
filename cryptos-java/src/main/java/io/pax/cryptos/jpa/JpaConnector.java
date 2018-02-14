@@ -10,7 +10,7 @@ import javax.persistence.Persistence;
  * Created by AELION on 13/02/2018.
  */
 public class JpaConnector {
-    EntityManagerFactory factory;    //connector appel la factory qui appel mysql
+    static EntityManagerFactory factory;    //connector appel la factory qui appel mysql
     void connect(){
         if(this.factory == null)
         {
