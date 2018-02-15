@@ -48,12 +48,12 @@ public class JpaLine implements Line {
 
     @Override
     public String getSymbol() {
-        return null;
+        return this.symbol;
     }
 
     @Override
     public double getQuantity() {
-        return 0;
+        return this.quantity;
     }
 
     @Override

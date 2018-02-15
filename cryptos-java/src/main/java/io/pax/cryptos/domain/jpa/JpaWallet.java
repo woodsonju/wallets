@@ -1,6 +1,5 @@
 package io.pax.cryptos.domain.jpa;
 
-import io.pax.cryptos.domain.Line;
 import io.pax.cryptos.domain.User;
 import io.pax.cryptos.domain.Wallet;
 
@@ -37,7 +36,7 @@ public class JpaWallet implements Wallet {
     }
 
     @Override
-    public List<? extends Line> getLines() {
+    public List<JpaLine> getLines() {
         return lines;
     }
 
@@ -57,4 +56,6 @@ public class JpaWallet implements Wallet {
     public String getName() {
         return this.name;
     }
+
+
 }
